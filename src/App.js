@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import routes from "./Routes";
+import { withRouter } from "react-router-dom";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+    console.log("this is the constructor on App.js");
+  }
+  componentDidMount() {
+    console.log("this is componentDidMount on App.js");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log(prevProps, prevState);
+    console.log("this is componentDidUpdate in App.js");
+  }
+
+  componentWillUnmount() {
+    alert("this is componentWillUnmount in App.js");
+  }
+
+  render() {
+    console.log("this is render in App.js");
+    return <div className="App">{routes}</div>;
+  }
 }
-
-export default App;
+export default withRouter(App);
